@@ -10,7 +10,7 @@ lang: en-us
 
 # Bing Service
 
-The **Bing Service** allows you to retrieve Bing results. Bing can return web results, news, images, and videos for many countries around the world.
+The **Bing Service** allows you to retrieve Bing results. Bing can return web results, news, images, and videos for many countries around the world in the language of your choice.
 
 ## Set up Bing API
 
@@ -29,6 +29,7 @@ Choose the *Bing Search - Free* option.  After selecting this and agreeing to th
 var searchConfig = new BingSearchConfig
 {
     Country = BingCountry.UnitedStates,
+    Language = BingLanguage.English,
     Query = SearchText.Text,
     QueryType = BingQueryType.Search
 };
@@ -36,6 +37,8 @@ var searchConfig = new BingSearchConfig
 ListView.ItemsSource = await BingService.Instance.RequestAsync(searchConfig, 50);
 
 {% endhighlight %}
+
+**Note:**  Due to the limitations of Bing News, only 10 results are returned by the news service.
 
 ## Example
 
